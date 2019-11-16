@@ -12,6 +12,9 @@ class OutboundMessageTowerListenerCommand extends Command
     /** @var OutboundMessageTower */
     private $outboundMessageTower;
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function __construct(string $name = null, OutboundMessageTower $outboundMessageTower)
     {
         parent::__construct($name);

@@ -12,6 +12,9 @@ class OutboundMessageTower
     /** @var Client */
     private $httpClient;
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function __construct()
     {
         $this->httpClient = new Client([
