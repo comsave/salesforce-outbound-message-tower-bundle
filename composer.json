@@ -4,15 +4,25 @@
     "homepage": "https://github.com/comsave/salesforce-outbound-message-bundle",
     "type": "library",
     "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Comsave\\": "src/Comsave/"
+        }
+    },
     "require": {
+        "php": ">=7.2.0",
         "symfony/console": "^3.4",
         "guzzlehttp/guzzle": "^6.4",
         "symfony/http-kernel": "^3.4"
     },
-    "autoload": {
-        "psr-4": {
-            "Comsave\\": "src/Comsave"
-        }
+    "require-dev": {
+        "phpunit/php-code-coverage": "^6.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "scripts": {
+        "run-tests": "vendor/bin/phpunit --no-coverage",
+        "run-coverage": "vendor/bin/phpunit --coverage-clover tests/_output/coverage.xml",
+        "run-coverage-text": "vendor/bin/phpunit --coverage-text=tests/_output/coverage.txt && cat tests/_output/coverage.txt"
     },
     "authors": [
         {
@@ -20,6 +30,9 @@
             "email": "vaidas.bagdonas@comsave.com"
         }
     ],
+    "config": {
+        "sort-packages": true
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
