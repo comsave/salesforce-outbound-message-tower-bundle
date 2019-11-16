@@ -1,8 +1,14 @@
 {
-    "name": "comsave/salesforce-outbound-message-tower-listener",
-    "description": "",
+    "name": "comsave/salesforce-outbound-message-tower-bundle",
+    "description": "Listen & process Salesforce broadcasted outbound messages in development.",
+    "homepage": "https://github.com/comsave/salesforce-outbound-message-bundle",
     "type": "library",
     "license": "MIT",
+    "require": {
+        "symfony/console": "^3.4",
+        "guzzlehttp/guzzle": "^6.4",
+        "symfony/http-kernel": "^3.4"
+    },
     "authors": [
         {
             "name": "Vaidas",
@@ -10,9 +16,5 @@
         }
     ],
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "symfony/console": "^3.4",
-        "guzzlehttp/guzzle": "^6.4"
-    }
+    "prefer-stable": true
 }

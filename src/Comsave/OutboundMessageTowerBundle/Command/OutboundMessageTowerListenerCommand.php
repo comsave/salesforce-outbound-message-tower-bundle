@@ -2,7 +2,7 @@
 
 namespace Comsave\OutboundMessageTowerListener\OutboundMessageTowerListenerCommand;
 
-use Comsave\OutboundMessageTowerListener\OutboundMessageTower;
+use Comsave\OutboundMessageTowerBundle\Services\OutboundMessageTower;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
