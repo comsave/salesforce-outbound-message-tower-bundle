@@ -23,8 +23,7 @@ class OutboundMessageTowerListenerCommand extends Command
     {
         $this
             ->setName('salesforce:outbound-message:tower-listener')
-            ->setDescription('Continually listens for OutboundMessage tower broadcasts to process.')
-        ;
+            ->setDescription('Continually listens for OutboundMessage tower broadcasts to process.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

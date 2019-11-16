@@ -3,6 +3,7 @@
 namespace Comsave\SalesforceOutboundMessageTowerBundle\Services;
 
 use GuzzleHttp\Client;
+use SimpleXMLElement;
 
 class OutboundMessageTower
 {
@@ -40,7 +41,7 @@ class OutboundMessageTower
     private function getSalesforceNotificationId(string $requestXml): ?string
     {
         $requestXml = str_ireplace(['soapenv:', 'soap:', 'sf:'], '', $requestXml);
-        $simpleXml = new \SimpleXMLElement($requestXml);
+        $simpleXml = new SimpleXMLElement($requestXml);
 
         return @$simpleXml->Body->notifications->ActionId ?? null;
     }
