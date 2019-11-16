@@ -1,6 +1,6 @@
 <?php
 
-namespace Comsave\OutboundMessageTowerBundle\Services;
+namespace Comsave\SalesforceOutboundMessageTowerBundle\Services;
 
 use GuzzleHttp\Client;
 
