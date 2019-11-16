@@ -10,7 +10,9 @@
         "symfony/http-kernel": "^3.4"
     },
     "autoload": {
-        "Comsave\\": "src/"
+        "psr-4": {
+            "Comsave\\": "src/Comsave"
+        }
     },
     "authors": [
         {
