@@ -9,6 +9,9 @@
         "guzzlehttp/guzzle": "^6.4",
         "symfony/http-kernel": "^3.4"
     },
+    "autoload": {
+        "Comsave\\": "src/"
+    },
     "authors": [
         {
             "name": "Vaidas",
