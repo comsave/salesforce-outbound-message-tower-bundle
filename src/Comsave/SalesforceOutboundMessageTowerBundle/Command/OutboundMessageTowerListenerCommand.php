@@ -12,8 +12,6 @@ class OutboundMessageTowerListenerCommand extends Command
     /** @var OutboundMessageTower */
     private $outboundMessageTower;
 
-    protected static $defaultName = 'salesforce:outbound-message:tower-listener';
-
     public function __construct(string $name = null, OutboundMessageTower $outboundMessageTower)
     {
         parent::__construct($name);
@@ -24,7 +22,9 @@ class OutboundMessageTowerListenerCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Continually listens for OutboundMessage tower broadcasts to process.');
+            ->setName('salesforce:outbound-message:tower-listener')
+            ->setDescription('Continually listens for OutboundMessage tower broadcasts to process.')
+        ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
