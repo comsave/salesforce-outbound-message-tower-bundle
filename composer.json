@@ -1,0 +1,18 @@
+{
+    "name": "comsave/salesforce-outbound-message-tower-listener",
+    "description": "",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vaidas",
+            "email": "vaidas.bagdonas@comsave.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "symfony/console": "^3.4",
+        "guzzlehttp/guzzle": "^6.4"
+    }
+}
