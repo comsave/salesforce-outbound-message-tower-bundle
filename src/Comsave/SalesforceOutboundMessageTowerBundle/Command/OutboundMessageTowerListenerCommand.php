@@ -1,8 +1,8 @@
 <?php
 
-namespace Comsave\SalesforceOutboundMessageTowerBundle\OutboundMessageTowerListenerCommand;
+namespace Comsave\SalesforceOutboundMessageTowerBundle\Command;
 
-use Comsave\OutboundMessageTowerBundle\Services\OutboundMessageTower;
+use Comsave\SalesforceOutboundMessageTowerBundle\Services\OutboundMessageTower;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
