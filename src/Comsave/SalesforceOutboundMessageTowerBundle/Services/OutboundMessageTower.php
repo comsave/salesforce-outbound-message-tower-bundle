@@ -31,14 +31,14 @@ class OutboundMessageTower
 
     public function fetchCurrentBroadcast(): string
     {
-        return $this->httpClient->get(sprintf('%s/broadcast', $this->towerBaseUrl));
+        return $this->httpClient->get(sprintf('%s/broadcast', $this->towerBaseUrl))->getBody()->getContents();
     }
 
     public function markBroadcastProcessed(string $outboundMessage): void
     {
         $notificationId = $this->getSalesforceNotificationId($outboundMessage);
 
-        $this->httpClient->get(sprintf('%s/broadcast/processed/%s', $this->towerBaseUrl, $notificationId));
+        $this->httpClient->get(sprintf('%s/broadcast/processed/%s', $this->towerBaseUrl, $notificationId))->getBody()->getContents();
     }
 
     private function getSalesforceNotificationId(string $requestXml): ?string
