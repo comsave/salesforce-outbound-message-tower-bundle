@@ -34,11 +34,13 @@ class OutboundMessageTower
         return $this->httpClient->get(sprintf('%s/broadcast', $this->towerBaseUrl))->getBody()->getContents();
     }
 
-    public function markBroadcastProcessed(string $outboundMessage): void
+    public function markBroadcastProcessed(string $outboundMessage): string
     {
         $notificationId = $this->getSalesforceNotificationId($outboundMessage);
 
         $this->httpClient->get(sprintf('%s/broadcast/processed/%s', $this->towerBaseUrl, $notificationId))->getBody()->getContents();
+
+        return $notificationId;
     }
 
     private function getSalesforceNotificationId(string $requestXml): ?string

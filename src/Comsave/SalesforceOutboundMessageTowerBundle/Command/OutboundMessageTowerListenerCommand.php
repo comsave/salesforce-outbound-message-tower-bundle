@@ -31,25 +31,29 @@ class OutboundMessageTowerListenerCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->write('Listening...');
+        $output->writeln('Listening for Outbound Message Tower broadcasts...');
 
         while (true) {
-            $output->write('.');
+            $notificationId = $this->processBroadcastedOutboundMessages();
 
-            $this->processBroadcastedOutboundMessages();
+            if ($notificationId) {
+                $output->writeln(sprintf('Processed notification `%s`', $notificationId));
+            }
 
             sleep(2);
         }
     }
 
-    public function processBroadcastedOutboundMessages(): void
+    public function processBroadcastedOutboundMessages(): ?string
     {
         $outboundMessage = $this->outboundMessageTower->fetchCurrentBroadcast();
 
-        if ($outboundMessage) {
-            $this->outboundMessageTower->rebroadcastLocally($outboundMessage);
-
-            $this->outboundMessageTower->markBroadcastProcessed($outboundMessage);
+        if (!$outboundMessage) {
+            return null;
         }
+
+        $this->outboundMessageTower->rebroadcastLocally($outboundMessage);
+
+        return $this->outboundMessageTower->markBroadcastProcessed($outboundMessage);
     }
 }
