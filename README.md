@@ -6,4 +6,4 @@ Listen for [Salesforce outbound messages tower](https://github.com/comsave/sales
 
 ---
 
-Run `bin/console salesforce:outbound-message:tower-listener`
+Run `bin/console salesforce:outbound-message:tower-listener yourChanneName`
