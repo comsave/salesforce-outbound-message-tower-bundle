@@ -37,7 +37,7 @@ class OutboundMessageTowerListenerCommand extends Command
     {
         $channelName = $input->getArgument('channelName');
 
-        if (!preg_match("/^[a-z0-9]$/i", $channelName)) {
+        if (!preg_match("/^[a-z0-9]+$/i", $channelName)) {
             throw new OutboundMessageTowerException('Invalid channel name. Only numbers and letters are allowed');
         }
 
