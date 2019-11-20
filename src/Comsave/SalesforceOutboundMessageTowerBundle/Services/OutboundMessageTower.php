@@ -29,7 +29,7 @@ class OutboundMessageTower
 
     public function rebroadcastLocally(string $outboundMessage): void
     {
-        $this->httpClient->post('/salesforce/sync', [
+        $this->httpClient->post('http://localhost/salesforce/sync', [
             'body' => $outboundMessage,
         ]);
     }
