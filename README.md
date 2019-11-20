@@ -5,3 +5,5 @@ Listen for [Salesforce outbound messages tower](https://github.com/comsave/sales
 ![](https://img.shields.io/travis/comsave/salesforce-outbound-message-tower-bundle)
 
 ---
+
+Run `bin/console salesforce:outbound-message:tower-listener`
