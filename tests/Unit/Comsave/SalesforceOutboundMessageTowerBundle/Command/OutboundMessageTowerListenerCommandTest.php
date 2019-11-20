@@ -30,9 +30,12 @@ class OutboundMessageTowerListenerCommandTest extends TestCase
      */
     public function testFetchesCurrentBroadcast()
     {
+        $channelNameStub = 'someChannelName';
+
         $this->outboundMessageTowerMock->expects($this->once())
+            ->with($channelNameStub)
             ->method('fetchCurrentBroadcast');
 
-        $this->outboundMessageTowerListenerCommand->processBroadcastedOutboundMessages();
+        $this->outboundMessageTowerListenerCommand->processBroadcastedOutboundMessages($channelNameStub);
     }
 }
