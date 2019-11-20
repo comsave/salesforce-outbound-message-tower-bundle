@@ -6,3 +6,6 @@ services:
 
   Comsave\SalesforceOutboundMessageTowerBundle\Command\OutboundMessageTowerListenerCommand:
     tags: ['console.command']
+
+  Comsave\SalesforceOutboundMessageTowerBundle\Services\OutboundMessageTower:
+    arguments: ['%env(SALESFORCE_OUTBOUND_MESSAGE_TOWER_URL)%']
