@@ -58,7 +58,7 @@ class OutboundMessageTowerListenerCommand extends Command
                 $output->writeln(sprintf('Processed notification `%s`', $notificationId));
             }
 
-            sleep($sleepFor);
+            usleep($sleepFor);
         }
     }
 
