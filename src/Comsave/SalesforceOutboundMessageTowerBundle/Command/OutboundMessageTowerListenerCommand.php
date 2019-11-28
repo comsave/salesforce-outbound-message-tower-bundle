@@ -23,12 +23,12 @@ class OutboundMessageTowerListenerCommand extends Command
      * @param int $towerPollingInterval
      * @codeCoverageIgnore
      */
-    public function __construct(string $name = null, OutboundMessageTower $outboundMessageTower, int $towerPollingInterval)
+    public function __construct(string $name = null, OutboundMessageTower $outboundMessageTower, $towerPollingInterval)
     {
         parent::__construct($name);
 
         $this->outboundMessageTower = $outboundMessageTower;
-        $this->towerPollingInterval = $towerPollingInterval >= 100 ? $towerPollingInterval : 100;
+        $this->towerPollingInterval = $towerPollingInterval >= 100 ? (int)$towerPollingInterval : 100;
     }
 
     protected function configure()
