@@ -22,7 +22,7 @@ class OutboundMessageTowerListenerCommandTest extends TestCase
     {
         $nameStub = 'some:name';
         $this->outboundMessageTowerMock = $this->createMock(OutboundMessageTower::class);
-        $this->outboundMessageTowerListenerCommand = new OutboundMessageTowerListenerCommand($nameStub, $this->outboundMessageTowerMock);
+        $this->outboundMessageTowerListenerCommand = new OutboundMessageTowerListenerCommand($nameStub, $this->outboundMessageTowerMock, null);
     }
 
     /**
