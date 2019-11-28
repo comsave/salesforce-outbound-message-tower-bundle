@@ -53,6 +53,6 @@ class OutboundMessageTower
         $requestXml = str_ireplace(['soapenv:', 'soap:', 'sf:'], '', $requestXml);
         $simpleXml = new \SimpleXMLElement($requestXml);
 
-        return @$simpleXml->Body->notifications->ActionId ?? null;
+        return @$simpleXml->Body->notifications->Notification->Id ?? null;
     }
 }
