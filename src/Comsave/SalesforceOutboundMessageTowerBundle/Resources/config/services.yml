@@ -5,6 +5,8 @@ services:
     public: false
 
   Comsave\SalesforceOutboundMessageTowerBundle\Command\OutboundMessageTowerListenerCommand:
+    arguments:
+      $towerPollingInterval: '%env(SALESFORCE_OUTBOUND_MESSAGE_TOWER_POLLING_INTERVAL_MS)%'
     tags: ['console.command']
 
   Comsave\SalesforceOutboundMessageTowerBundle\Services\OutboundMessageTower:

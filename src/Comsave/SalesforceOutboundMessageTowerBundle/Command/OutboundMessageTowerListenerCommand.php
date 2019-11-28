@@ -14,14 +14,21 @@ class OutboundMessageTowerListenerCommand extends Command
     /** @var OutboundMessageTower */
     private $outboundMessageTower;
 
+    /** @var int */
+    private $towerPollingInterval;
+
     /**
+     * @param string|null $name
+     * @param OutboundMessageTower $outboundMessageTower
+     * @param int $towerPollingInterval
      * @codeCoverageIgnore
      */
-    public function __construct(string $name = null, OutboundMessageTower $outboundMessageTower)
+    public function __construct(string $name = null, OutboundMessageTower $outboundMessageTower, int $towerPollingInterval)
     {
         parent::__construct($name);
 
         $this->outboundMessageTower = $outboundMessageTower;
+        $this->towerPollingInterval = $towerPollingInterval >= 100 ? $towerPollingInterval : 100;
     }
 
     protected function configure()
@@ -42,6 +49,7 @@ class OutboundMessageTowerListenerCommand extends Command
         }
 
         $output->writeln('Listening for Outbound Message Tower broadcasts...');
+        $sleepFor = $this->towerPollingInterval * 1000;
 
         while (true) {
             $notificationId = $this->processBroadcastedOutboundMessages($channelName);
@@ -50,7 +58,7 @@ class OutboundMessageTowerListenerCommand extends Command
                 $output->writeln(sprintf('Processed notification `%s`', $notificationId));
             }
 
-            sleep(2);
+            sleep($sleepFor);
         }
     }
 
