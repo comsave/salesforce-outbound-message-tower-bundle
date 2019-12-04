@@ -20,9 +20,9 @@ class OutboundMessageTower
     {
         $this->towerBaseUrl = $towerBaseUrl;
 
-        if (!$this->towerBaseUrl) {
-            throw new OutboundMessageTowerException('Environment variable `SALESFORCE_OUTBOUND_MESSAGE_TOWER_URL` not defined.');
-        }
+//        if (!$this->towerBaseUrl) {
+//            throw new OutboundMessageTowerException('Environment variable `SALESFORCE_OUTBOUND_MESSAGE_TOWER_URL` not defined.');
+//        }
 
         $this->httpClient = new Client();
     }
