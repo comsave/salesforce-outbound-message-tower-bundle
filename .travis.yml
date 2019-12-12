@@ -1,15 +1,26 @@
-language: php
-
 php:
+  - 7.2
   - 7.3
 
-install: composer install
+before_install:
+  - SYMFONY_DEPENDENCIES=$(cat composer.json | jq '.require | to_entries[] | "\(.key):\(.value)"' | egrep -o '(symfony\/[^:]+)[^|]+\|' | egrep -o '(symfony\/[^:]+)'); for SYMFONY_DEPENDENCY in $SYMFONY_DEPENDENCIES; do composer require "${SYMFONY_DEPENDENCY}:${SYMFONY_VERSION}" --no-update; done
 
-script: composer run-coverage
+install: composer install --no-interaction
+
+script:
+  - composer run-coverage
 
 env:
   global:
     - CC_TEST_REPORTER_ID=ee32822eff72992fef06c3afebae1e826d80cb766c918bbf7f33b6f001efde1c
+    - SYMFONY_VERSION=^4.3
+
+matrix:
+  include:
+    - php: 7.2
+      env: SYMFONY_VERSION=^3.4
+    - php: 7.3
+      env: SYMFONY_VERSION=^3.4
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -17,5 +28,5 @@ before_script:
   - ./cc-test-reporter before-build
 
 after_script:
-  - mv tests/_output/coverage.xml clover.xml
+  - mv Tests/_output/coverage.xml clover.xml
   - ./cc-test-reporter after-build --coverage-input-type clover --id $CC_TEST_REPORTER_ID --exit-code $TRAVIS_TEST_RESULT

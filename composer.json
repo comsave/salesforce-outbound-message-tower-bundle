@@ -13,12 +13,12 @@
         "php": ">=7.2.0",
         "ext-SimpleXML": "^7.3",
         "guzzlehttp/guzzle": "^6.4",
-        "symfony/config": "^3.4",
-        "symfony/console": "^3.4",
-        "symfony/dependency-injection": "^3.4.26",
-        "symfony/dotenv": "^3.4",
-        "symfony/http-kernel": "^3.4",
-        "symfony/yaml": "^3.4"
+        "symfony/config": "^3.4|^4.3",
+        "symfony/console": "^3.4|^4.3",
+        "symfony/dependency-injection": "^3.4|^4.3",
+        "symfony/dotenv": "^3.4|^4.3",
+        "symfony/http-kernel": "^3.4|^4.3",
+        "symfony/yaml": "^3.4|^4.3"
     },
     "require-dev": {
         "phpunit/php-code-coverage": "^6.0",
