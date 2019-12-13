@@ -72,9 +72,8 @@ class OutboundMessageTowerListenerCommand extends Command
             return null;
         }
 
-        $notificationId = $this->outboundMessageTower->markBroadcastProcessed($channelName, $outboundMessage);
         $this->outboundMessageTower->rebroadcastLocally($outboundMessage);
 
-        return $notificationId;
+        return $this->outboundMessageTower->markBroadcastProcessed($channelName, $outboundMessage);
     }
 }
