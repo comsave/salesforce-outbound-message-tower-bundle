@@ -5,17 +5,15 @@
          bootstrap="vendor/autoload.php"
          colors="true"
          backupGlobals="false"
-         stopOnFailure="true"
-         stopOnError="true"
-         convertErrorsToExceptions="true"
-         forceCoversAnnotation="true"
-         defaultTestSuite="all"
 >
     <php>
         <ini name="error_reporting" value="-1"/>
         <ini name="intl.default_locale" value="en"/>
         <ini name="intl.error_level" value="0"/>
         <ini name="memory_limit" value="-1"/>
+        <env name="BOOTSTRAP_CLEAR_CACHE_ENV" value="test"/>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
+        <env name="APP_ENV" value="test"/>
     </php>
 
     <testsuites>
