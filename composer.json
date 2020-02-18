@@ -10,8 +10,8 @@
         }
     },
     "require": {
-        "php": "^7.2",
-        "ext-simplexml": "^7.2",
+        "php": ">=7.2",
+        "ext-simplexml": ">=7.2",
         "guzzlehttp/guzzle": "^6.4",
         "symfony/config": "^3.4|^4.3",
         "symfony/console": "^3.4|^4.3",
